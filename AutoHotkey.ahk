@@ -1,84 +1,48 @@
 ; # - windows key
 ; ^ - control
-; + - shift
+; +  - shift
 ; ! - alt
 
 ;set hotstrings to work only with TAB
 #Hotstring EndChars `t
 
+
+;path customization
 work_machine := true  
-dropbox_folder := "c:\dropbox\"
+dropbox_folder := ""
+
 
 ;// run at startup everywhere
+;Run %dropbox_folder%utilities\mouseemu\mousemu.exe
+;Run %dropbox_folder%utilities\ddm\ddmm.exe
+
+dropbox_folder := "c:\dropbox\"
 Run c:\Program Files\ConEmu\conemu64.exe 
-Run %dropbox_folder%utilities\mouseemu\mousemu.exe
 Run %dropbox_folder%utilities\winsplit\winsplit.exe
 Run %dropbox_folder%utilities\arsclip\arsclip.exe
-
-;//selective start
-if work_machine
-{
-	Run C:\Program Files (x86)\Skype\Phone\Skype.exe
-}
+Run %dropbox_folder%utilities\mouseemu\mousemu.exe
 
 
-;//maximize current window
-^+!space:: 
-{
-	WinGetPos, winWidth, winHeight, , , A  ; "A" to get the active window's pos.
-	if ( winWidth == -8 and winHeight == -8) {
-	WinRestore, A
-	} else
-	{
-	WinMaximize, A
-	}
-	return
-}
-
-^!f12:: Run nircmd setdefaultsounddevice "Speakers"
-
-^!f11::
-{
- Run nircmd setdefaultsounddevice "LGULTRAWIDE"
- Run nircmd setdefaultsounddevice "LG ULTRAWIDE-4"
- Run nircmd setdefaultsounddevice "LG ULTRAWIDE-0"
- Return		
-}
-
-
-;//edit this file
-#^+f12:: Edit
-
-;//reload autohotkey config file
-#^+f11::
-  SoundPlay *64
-  Reload
-  Sleep 1000
-  MsgBox 4, , Script reloaded unsuccessful, open it for editing?
-  IfMsgBox Yes, Edit
-return
-
-
-^#F1::Run ::{645ff040-5081-101b-9f08-00aa002f954e}  ;//recycle bin
-^#F2::Run control   ;//control panel
+^#F1::Run ::{645ff040-5081-101b-9f08-00aa002f954e}
+^#F2::Run control
 ^#F3::Run control Sysdm.cpl
 ^#F4::Run control ncpa.cpl
 ^#F5::Run control appwiz.cpl
 ^#F6::Run control desk.cpl
 ^#F7::Run control admintools
 
-;//hide taskbar
+
+
 ^+h::
 {	
-
 	if toggle := !toggle
 	{
-		 WinHide ahk_class Shell_TrayWnd
-		 WinHide Start ahk_class Button
+		  WinHide ahk_class Shell_TrayWnd
+		  WinHide Start ahk_class Button
 	}
 	else
 	{
-		 WinShow ahk_class Shell_TrayWnd
+		  WinShow ahk_class Shell_TrayWnd
 	 	 WinShow Start ahk_class Button
 	}
 	return
@@ -87,10 +51,11 @@ return
 
 ^#s::
 {
-	IfWinExist, ConEmu
+
+	IfWinExist, Conemu
 	{
-		WinActivate
-		Return
+		 WinActivate  
+		 return
 	}
 
 	Run C:\Program Files\ConEmu\conemu64.exe
@@ -100,43 +65,50 @@ return
 
 ^#t::
 {
-	IfWinExist, VeraCrypt
+	IfWinExist, musikcube
 	{
 		 WinActivate  
 		 return
 	}
 	
-	Run C:\Program Files\veracrypt\veracrypt.exe
+	Run %dropbox_folder%utilities\musikcube\musikcube.exe
 	return
 }
 
 
 ^#9::Run chrome.exe
 ^#2::Run opera.exe
-^#3::Run vivaldi.exe
 ^#5::Run inetmgr.exe
 ^#6::Run %dropbox_folder%utilities\database\database4.exe
 
-^#a::Run C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\Ssms.exe
 ^#z::Run C:\Program Files\Microsoft VS Code\Code.exe
 ^#v::Run C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe /nosplash
 ^#i::Run powershell.exe "start microsoft-edge:"
+^#n::Run %dropbox_folder%utilities\notepad2.exe
 ^#g::Run C:\Program Files\Mozilla Firefox\firefox.exe
 ^#w::Run %dropbox_folder%utilities\foobar2000\foobar2000.exe
-^#r::Run y:\terminals\terminals.exe
-^#o::Run y:\ThunderbirdPortable\thunderbirdPortable.exe
 
 ^#q::
 {
-	if(work_machine = true)
-	{
-		Run %dropbox_folder%utilities\totalcmd\totalcmd64.exe /i=%dropbox_folder%utilities\totalcmd\wincmd_work.ini
-	}
-	else
+	if(main_machine = true)
 	{
 		Run %dropbox_folder%utilities\totalcmd\totalcmd64.exe /i=%dropbox_folder%utilities\totalcmd\wincmd_home.ini
 	}
+	else
+	{
+		Run %dropbox_folder%utilities\totalcmd\totalcmd64.exe /i=%dropbox_folder%utilities\totalcmd\wincmd_work.ini
+	}
 	Return
+}
+
+
+;//restart explorer
+^+#e::
+{
+	Run pskill explorer
+	Sleep 50
+	Run explorer.exe
+	return
 }
 
 
@@ -156,7 +128,7 @@ return
 {
 	Send, ^c
 	Sleep 50
-	Run "iexplore.exe" %clipboard%
+	Run %clipboard%
 	Return
 }
 
@@ -184,11 +156,13 @@ return
 }
 
 ;turn off monitor
-^+#s::
-{
-	run, %dropbox_folder%utilities\nircmd cmdwait 1000 monitor off	
-	return
-}
+;^+#s::
+;{
+;	;Sleep 1000
+;	;SendMessage,0x112,0xF170,1,,Program Manager
+;	run, %dropbox_folder%utilities\nircmd cmdwait 1000 monitor off	
+;	return
+;}
 
 
 ;windowed full screen implementation
@@ -248,3 +222,44 @@ return
       WindowTitle:=WindowTitle . " - (Pinned)"
 
 }
+
+
+;//empty recycle bin
+^+#1::
+{
+	FileRecycleEmpty, C:\ 
+	FileRecycleEmpty, D:\ 
+	Return
+}
+
+
+
+;//hotstrings
+::br::
+(
+Best regards,
+Marius
+)
+
+
+;//hide titlebar
+!+^h::
+{
+  WinSet, Style, -0xC00000, A
+
+  return
+;
+}
+
+
+;//edit this file
+#^+f12:: Edit
+
+;//reload autohotkey config file
+#^+f11::
+  SoundPlay *64
+  Reload
+  Sleep 1000
+  MsgBox 4, , Script reloaded unsuccessful, open it for editing?
+  IfMsgBox Yes, Edit
+return
