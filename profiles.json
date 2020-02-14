@@ -1,0 +1,248 @@
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "profiles": [{
+            // Make changes here to the powershell.exe profile
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "commandline": "powershell.exe",
+            "hidden": false,
+            "colorScheme": "WildCherry",
+            "fontFace": "Input Mono",
+            "fontSize": 12,
+            "historySize": 9000,
+            "name": "PS _>",
+            "backgroundImage": "ms-appdata:///roaming/8dWBmaT.jpg",
+            "backgroundImageOpacity": 0.15,
+            "snapOnInput": true
+        },
+        {
+            // Make changes here to the cmd.exe profile
+            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+            "name": "cmd",
+            "commandline": "cmd.exe",
+            "hidden": false,
+            "colorScheme": "Campbell",
+            "fontFace": "Iosevka",
+            "fontSize": 12,
+            "historySize": 9000,
+            "backgroundImage": "ms-appdata:///roaming/8dWBmaT.jpg",
+            "backgroundImageOpacity": 0.45,
+            "snapOnInput": true
+
+        },
+        {
+            "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+            "hidden": false,
+            "name": "Ubuntu",
+            "source": "Windows.Terminal.Wsl",
+            "colorScheme": "Campbell",
+            "fontFace": "Iosevka",
+            "fontSize": 12,
+            "historySize": 9000,
+            "backgroundImage": "ms-appdata:///roaming/8dWBmaT.jpg",
+            "backgroundImageOpacity": 0.45,
+            "snapOnInput": true
+        },
+        {
+            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+            "hidden": false,
+            "name": "Azure Cloud Shell",
+            "source": "Windows.Terminal.Azure"
+
+
+        }
+    ],
+
+    // Add custom color schemes to this array
+    "schemes": [
+        {
+            "name": "WildCherry",
+            "black": "#000507",
+            "red": "#d94085",
+            "green": "#2ab250",
+            "yellow": "#ffd16f",
+            "blue": "#883cdc",
+            "purple": "#ececec",
+            "cyan": "#c1b8b7",
+            "white": "#fff8de",
+            "brightBlack": "#009cc9",
+            "brightRed": "#da6bac",
+            "brightGreen": "#f4dca5",
+            "brightYellow": "#eac066",
+            "brightBlue": "#308cba",
+            "brightPurple": "#ae636b",
+            "brightCyan": "#ff919d",
+            "brightWhite": "#e4838d",
+            "background": "#1f1726",
+            "foreground": "#dafaff"
+          },
+
+        {
+            "name": "Operator Mono Dark",
+            "black": "#5a5a5a",
+            "red": "#ca372d",
+            "green": "#4d7b3a",
+            "yellow": "#d4d697",
+            "blue": "#4387cf",
+            "purple": "#b86cb4",
+            "cyan": "#72d5c6",
+            "white": "#ced4cd",
+            "brightBlack": "#9a9b99",
+            "brightRed": "#c37d62",
+            "brightGreen": "#83d0a2",
+            "brightYellow": "#fdfdc5",
+            "brightBlue": "#89d3f6",
+            "brightPurple": "#ff2c7a",
+            "brightCyan": "#82eada",
+            "brightWhite": "#fdfdf6",
+            "background": "#191919",
+            "foreground": "#c3cac2"
+          },
+
+        {
+            "name": "Relaxed",
+            "black": "#151515",
+            "red": "#bc5653",
+            "green": "#909d63",
+            "yellow": "#ebc17a",
+            "blue": "#6a8799",
+            "purple": "#b06698",
+            "cyan": "#c9dfff",
+            "white": "#d9d9d9",
+            "brightBlack": "#636363",
+            "brightRed": "#bc5653",
+            "brightGreen": "#a0ac77",
+            "brightYellow": "#ebc17a",
+            "brightBlue": "#7eaac7",
+            "brightPurple": "#b06698",
+            "brightCyan": "#acbbd0",
+            "brightWhite": "#f7f7f7",
+            "background": "#353a44",
+            "foreground": "#d9d9d9"
+          },
+        {
+            "name": "AtelierSulphurpool",
+            "black": "#202746",
+            "red": "#c94922",
+            "green": "#ac9739",
+            "yellow": "#c08b30",
+            "blue": "#3d8fd1",
+            "purple": "#6679cc",
+            "cyan": "#22a2c9",
+            "white": "#979db4",
+            "brightBlack": "#6b7394",
+            "brightRed": "#c76b29",
+            "brightGreen": "#293256",
+            "brightYellow": "#5e6687",
+            "brightBlue": "#898ea4",
+            "brightPurple": "#dfe2f1",
+            "brightCyan": "#9c637a",
+            "brightWhite": "#f5f7ff",
+            "background": "#202746",
+            "foreground": "#979db4"
+          },
+
+        {
+            "name": "Batman",
+            "black": "#1b1d1e",
+            "red": "#e6dc44",
+            "green": "#c8be46",
+            "yellow": "#f4fd22",
+            "blue": "#737174",
+            "purple": "#747271",
+            "cyan": "#62605f",
+            "white": "#c6c5bf",
+            "brightBlack": "#505354",
+            "brightRed": "#fff78e",
+            "brightGreen": "#fff27d",
+            "brightYellow": "#feed6c",
+            "brightBlue": "#919495",
+            "brightPurple": "#9a9a9d",
+            "brightCyan": "#a3a3a6",
+            "brightWhite": "#dadbd6",
+            "background": "#1b1d1e",
+            "foreground": "#6f6f6f"
+          },
+
+          {
+            "name": "Gruvbox Dark",
+            "black": "#1e1e1e",
+            "red": "#be0f17",
+            "green": "#868715",
+            "yellow": "#cc881a",
+            "blue": "#377375",
+            "purple": "#a04b73",
+            "cyan": "#578e57",
+            "white": "#978771",
+            "brightBlack": "#7f7061",
+            "brightRed": "#f73028",
+            "brightGreen": "#aab01e",
+            "brightYellow": "#f7b125",
+            "brightBlue": "#719586",
+            "brightPurple": "#c77089",
+            "brightCyan": "#7db669",
+            "brightWhite": "#e6d4a3",
+            "background": "#1e1e1e",
+            "foreground": "#e6d4a3"
+          },
+
+          {
+            "name": "JetBrains Darcula",
+            "black": "#000000",
+            "red": "#fa5355",
+            "green": "#126e00",
+            "yellow": "#c2c300",
+            "blue": "#4581eb",
+            "purple": "#fa54ff",
+            "cyan": "#33c2c1",
+            "white": "#adadad",
+            "brightBlack": "#555555",
+            "brightRed": "#fb7172",
+            "brightGreen": "#67ff4f",
+            "brightYellow": "#ffff00",
+            "brightBlue": "#6d9df1",
+            "brightPurple": "#fb82ff",
+            "brightCyan": "#60d3d1",
+            "brightWhite": "#eeeeee",
+            "background": "#202020",
+            "foreground": "#adadad"
+          }
+
+    ],
+
+    // Add any keybinding overrides to this array.
+    // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": [
+
+        {
+            "command": "closeTab",
+            "keys": [
+                "ctrl+w"
+            ]
+        },
+        {
+            "command": "newTab",
+            "keys": [
+                "ctrl+n"
+            ]
+        },
+        {
+            "command": "copy",
+            "keys": [
+                "ctrl+c"
+            ]
+        },
+        {
+            "command": "copy",
+            "keys": [
+                "shift+ins"
+            ]
+        }
+    ]
+
+}

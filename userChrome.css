@@ -1,8 +1,36 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-#TabsToolbar {
-    visibility: collapse;
+
+
+#TabsToolbar
+{
+   visibility: collapse;
+} 
+
+
+#sidebar-header
+{ 
+	visibility: collapse;
 }
 
-#sidebar-header {
-    visibility: collapse;
+
+
+#statuspanel-label { background-color: #121212 !important; color: #ffffff !important; }
+
+.titlebar-buttonbox-container {
+    display: none !important;
+}
+
+
+scrollbar
+{
+    scrollbar-color: dodgerblue black !important;
+    scrollbar-width: thin !important;
+}
+
+
+#nav-bar {
+  margin-top: -30px !important;
+  margin-left: 0px !important;
+  height: 30px;
+  background-color: #2a2a2e !important;
 }

@@ -1,0 +1,16 @@
+﻿* {
+    scrollbar-color: dodgerblue black !important;
+    scrollbar-width: thin !important;
+}
+
+@-moz-document url-prefix("about:"),
+@-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html") {
+    window,
+    page,
+    html,
+    .main-content,
+    scrollbar {
+        scrollbar-color: dodgerblue black !important;
+        scrollbar-width: thin !important;
+    }
+}
